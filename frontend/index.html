@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Instagram Bot</h1>
+        <p class="subtitle">Bot sederhana</p>
+
+        <div class="form-section">
+            <!-- Akun Instagram -->
+            <div class="input-group">
+                <h2>1. Masukkan Akun Instagram</h2>
+                <p class="instruction">Tulis seperti ini: username,password</p>
+                <textarea id="accounts" placeholder="contoh:&#10;username1,password1&#10;username2,password2">
+restisukawati,jasuke00
+devanoaditama21,jasuke00
+lia.santika24,jasuke00</textarea>
+            </div>
+
+            <!-- Target Postingan -->
+            <div class="input-group">
+                <h2>2. URL Postingan Target</h2>
+                <p class="instruction">Salin URL postingan Instagram yang ingin dikomentari</p>
+                <input type="text" id="target" value="https://www.instagram.com/p/DPWSqohCp2a/" placeholder="https://www.instagram.com/p/...">
+            </div>
+
+            <!-- Komentar -->
+            <div class="input-group">
+                <h2>3. Daftar Komentar</h2>
+                <p class="instruction">Tulis komentar yang akan dikirim (satu per baris)</p>
+                <textarea id="comments" placeholder="contoh:&#10;Keren!&#10;Bagus banget!&#10;Mantap!">Keren!
+Mantap!
+Good content!</textarea>
+            </div>
+
+            <!-- Pengaturan Sederhana -->
+            <div class="input-group">
+                <h2>4. Pengaturan</h2>
+                <div class="settings">
+                    <div class="setting-item">
+                        <label>Komentar per akun:</label>
+                        <input type="number" id="maxComments" value="1" min="1" max="10">
+                    </div>
+                    <div class="setting-item">
+                        <label>Jumlah ulangan:</label>
+                        <input type="number" id="iterations" value="1" min="1" max="5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Aksi -->
+            <div class="button-group">
+                <button id="runBtn" class="btn-run" onclick="runBot()">🚀 JALANKAN BOT</button>
+                <button id="stopBtn" class="btn-stop" onclick="stopBot()" disabled>⏹️ BERHENTI</button>
+            </div>
+        </div>
+
+        <!-- Status dan Hasil -->
+        <div class="result-section">
+            <h2>Status & Hasil</h2>
+            
+            <div class="status-box">
+                <div id="statusText">Siap menjalankan bot...</div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="log-box">
+                <h3>Catatan Aktivitas:</h3>
+                <div id="logDisplay">
+                    <div class="log-item">Sistem siap. Isi data di atas dan klik "JALANKAN BOT".</div>
+                </div>
+            </div>
+
+            <div id="results" class="results-box" style="display: none;">
+                <h3>Hasil:</h3>
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
